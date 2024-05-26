@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>9229D722-C86A-49C3-81C1-958EE3DBAE73</title>
+    <defs>
+        <polygon id="path-1" points="0 56 56 56 56 0 0 0"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01-Partial--Loading-&amp;-AD-Empty_SE2" transform="translate(-284.000000, -356.000000)">
+            <g id="Button/01-Menu" transform="translate(250.000000, 348.000000)">
+                <g id="Button/00-Element/Menu-Top-up" transform="translate(34.000000, 8.000000)">
+                    <path d="M56,28 C56,43.46384 43.46384,56 28,56 C12.53616,56 0,43.46384 0,28 C0,12.53616 12.53616,0 28,0 C43.46384,0 56,12.53616 56,28" id="Fill-1" fill="#6F6F6F"></path>
+                    <path d="M36.910216,12.926956 C36.910216,11.404876 35.665056,10.159716 34.142976,10.159716 L18.150776,10.159716 C16.628696,10.159716 15.383536,11.404876 15.383536,12.926956 L15.383536,43.131676 C15.383536,44.653476 16.628696,45.898916 18.150776,45.898916 L34.142976,45.898916 C35.665056,45.898916 36.910216,44.653476 36.910216,43.131676 L36.910216,12.926956 Z" id="Fill-3" fill="#FFFFFF"></path>
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-6"></g>
+                    <polygon id="Fill-5" fill="#DDDDDD" mask="url(#mask-2)" points="17.51148 41.88268 34.78244 41.88268 34.78244 12.56332 17.51148 12.56332"></polygon>
+                    <path d="M36.910216,46.922176 L36.910216,46.922176 C32.403056,46.922176 28.715736,43.234576 28.715736,38.727696 L28.715736,38.727696 C28.715736,34.220536 32.403056,30.532936 36.910216,30.532936 L36.910216,30.532936 C41.417096,30.532936 45.104696,34.220536 45.104696,38.727696 L45.104696,38.727696 C45.104696,43.234576 41.417096,46.922176 36.910216,46.922176" id="Fill-7" fill="#FF8861" mask="url(#mask-2)"></path>
+                    <line x1="34.184164" y1="38.727612" x2="39.636324" y2="38.727612" id="Stroke-8" stroke="#FFFFFF" stroke-width="1.82" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)"></line>
+                    <line x1="36.910216" y1="36.00156" x2="36.910216" y2="41.45372" id="Stroke-9" stroke="#FFFFFF" stroke-width="1.82" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)"></line>
+                    <line x1="22.75" y1="21.4375" x2="29.75" y2="21.4375" id="Stroke-10" stroke="#555555" stroke-width="1.421875" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)"></line>
+                    <g id="Group" mask="url(#mask-2)" stroke="#555555" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.421875">
+                        <g transform="translate(24.500000, 24.500000)">
+                            <polyline id="Stroke-11" points="0 1.7934 1.7934 0 3.58708 1.7934"></polyline>
+                            <line x1="1.718892" y1="0.260848" x2="1.718892" y2="5.487888" id="Stroke-12"></line>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

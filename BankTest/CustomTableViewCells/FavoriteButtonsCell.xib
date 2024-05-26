@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" rowHeight="88" id="KGk-i7-Jjw" customClass="FavoriteButtonsCell" customModule="BankTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8w-Ng-lMT" userLabel="DefaultView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" translatesAutoresizingMaskIntoConstraints="NO" id="Qao-Dz-qsg">
+                                <rect key="frame" x="36" y="4" width="56" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Qao-Dz-qsg" secondAttribute="height" multiplier="1:1" id="nKs-bd-aGn"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- - -" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXj-e2-yxr">
+                                <rect key="frame" x="52" y="60" width="24" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" name="gray6"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can add a favorite through the transfer or payment function." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y52-w1-zKp">
+                                <rect key="frame" x="104" y="16.000000000000004" width="192" height="50.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" name="gray6"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="vXj-e2-yxr" firstAttribute="top" secondItem="D8w-Ng-lMT" secondAttribute="top" constant="60" id="Scz-dV-mYL"/>
+                            <constraint firstAttribute="bottom" secondItem="vXj-e2-yxr" secondAttribute="bottom" constant="4" id="ThY-cH-PbR"/>
+                            <constraint firstAttribute="trailing" secondItem="Y52-w1-zKp" secondAttribute="trailing" constant="24" id="b0e-0p-k0K"/>
+                            <constraint firstItem="vXj-e2-yxr" firstAttribute="centerX" secondItem="Qao-Dz-qsg" secondAttribute="centerX" id="cxb-gv-xhd"/>
+                            <constraint firstItem="Y52-w1-zKp" firstAttribute="top" secondItem="D8w-Ng-lMT" secondAttribute="top" constant="16" id="v1v-pf-P3q"/>
+                            <constraint firstItem="Y52-w1-zKp" firstAttribute="leading" secondItem="D8w-Ng-lMT" secondAttribute="leading" constant="104" id="vQu-Rv-amp"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Qao-Dz-qsg" firstAttribute="leading" secondItem="D8w-Ng-lMT" secondAttribute="leading" constant="36" id="BAK-bW-zux"/>
+                    <constraint firstItem="Qao-Dz-qsg" firstAttribute="top" secondItem="D8w-Ng-lMT" secondAttribute="top" constant="4" id="Bt9-Eu-nnj"/>
+                    <constraint firstAttribute="bottom" secondItem="D8w-Ng-lMT" secondAttribute="bottom" id="CHY-QT-1uY"/>
+                    <constraint firstItem="D8w-Ng-lMT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="e5b-Ml-4gS"/>
+                    <constraint firstItem="D8w-Ng-lMT" firstAttribute="bottom" secondItem="Qao-Dz-qsg" secondAttribute="bottom" constant="28" id="eGl-Bx-cw9"/>
+                    <constraint firstItem="D8w-Ng-lMT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="uNi-g7-BnP"/>
+                    <constraint firstAttribute="trailing" secondItem="D8w-Ng-lMT" secondAttribute="trailing" id="wtd-Yl-wDI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="139" y="21"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="person" width="56" height="56"/>
+        <namedColor name="gray6">
+            <color red="0.43529411764705883" green="0.43529411764705883" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
