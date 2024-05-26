@@ -21,6 +21,9 @@
 		65145BD82C02609300308749 /* ADsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65145BD62C02609300308749 /* ADsCell.xib */; };
 		65145BDB2C02E45B00308749 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65145BDA2C02E45B00308749 /* MainViewController.swift */; };
 		65145BDE2C02F90700308749 /* FloatingTabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65145BDD2C02F90700308749 /* FloatingTabBarView.xib */; };
+		65145BE42C031B9E00308749 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65145BE32C031B9E00308749 /* DataModel.swift */; };
+		65145BE62C032DC800308749 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65145BE52C032DC800308749 /* APIController.swift */; };
+		65145BE82C035CA600308749 /* ADViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65145BE72C035CA600308749 /* ADViewController.swift */; };
 		658DE4052C0157CB0051EBC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE4042C0157CB0051EBC5 /* AppDelegate.swift */; };
 		658DE4072C0157CB0051EBC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE4062C0157CB0051EBC5 /* SceneDelegate.swift */; };
 		658DE4092C0157CB0051EBC5 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE4082C0157CB0051EBC5 /* HomePageViewController.swift */; };
@@ -47,6 +50,9 @@
 		65145BD62C02609300308749 /* ADsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ADsCell.xib; sourceTree = "<group>"; };
 		65145BDA2C02E45B00308749 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		65145BDD2C02F90700308749 /* FloatingTabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatingTabBarView.xib; sourceTree = "<group>"; };
+		65145BE32C031B9E00308749 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		65145BE52C032DC800308749 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		65145BE72C035CA600308749 /* ADViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADViewController.swift; sourceTree = "<group>"; };
 		658DE4012C0157CB0051EBC5 /* BankTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BankTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		658DE4042C0157CB0051EBC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		658DE4062C0157CB0051EBC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +85,14 @@
 			path = FloatingTabBar;
 			sourceTree = "<group>";
 		};
+		65145BE12C031B8200308749 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				65145BE32C031B9E00308749 /* DataModel.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
 		658DE3F82C0157CB0051EBC5 = {
 			isa = PBXGroup;
 			children = (
@@ -101,11 +115,14 @@
 				658DE4042C0157CB0051EBC5 /* AppDelegate.swift */,
 				658DE4062C0157CB0051EBC5 /* SceneDelegate.swift */,
 				65145BBF2C01970700308749 /* Extensions.swift */,
+				65145BE52C032DC800308749 /* APIController.swift */,
 				65145BDA2C02E45B00308749 /* MainViewController.swift */,
 				658DE4082C0157CB0051EBC5 /* HomePageViewController.swift */,
 				65145BC12C019F5B00308749 /* HomePageViewModel.swift */,
+				65145BE72C035CA600308749 /* ADViewController.swift */,
 				65145BDC2C02F8E600308749 /* FloatingTabBar */,
 				65FA34262C015F3200DC452D /* CustomTableViewCells */,
+				65145BE12C031B8200308749 /* DataModel */,
 				658DE40D2C0157CD0051EBC5 /* Assets.xcassets */,
 				658DE40F2C0157CD0051EBC5 /* LaunchScreen.storyboard */,
 				658DE4122C0157CD0051EBC5 /* Info.plist */,
@@ -217,14 +234,17 @@
 				65FA342F2C01678700DC452D /* AccountBalanceTitleCell.swift in Sources */,
 				65145BC02C01970700308749 /* Extensions.swift in Sources */,
 				65145BC92C01A64400308749 /* FunctionButtonsCell.swift in Sources */,
+				65145BE82C035CA600308749 /* ADViewController.swift in Sources */,
 				65145BC52C01A17D00308749 /* BalanceCell.swift in Sources */,
 				65145BC22C019F5B00308749 /* HomePageViewModel.swift in Sources */,
 				65FA34292C01622E00DC452D /* HeadAndNotificationCell.swift in Sources */,
 				65145BCF2C01AEF300308749 /* FavoriteButtonsTitleCell.swift in Sources */,
+				65145BE42C031B9E00308749 /* DataModel.swift in Sources */,
 				658DE4092C0157CB0051EBC5 /* HomePageViewController.swift in Sources */,
 				658DE4052C0157CB0051EBC5 /* AppDelegate.swift in Sources */,
 				658DE4072C0157CB0051EBC5 /* SceneDelegate.swift in Sources */,
 				65145BD32C025C2E00308749 /* FavoriteButtonsCell.swift in Sources */,
+				65145BE62C032DC800308749 /* APIController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

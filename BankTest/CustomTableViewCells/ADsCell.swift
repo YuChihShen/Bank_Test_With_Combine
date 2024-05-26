@@ -6,39 +6,99 @@
 //
 
 import UIKit
+import Combine
 
-class ADsCell: UITableViewCell {
+class ADsCell: UITableViewCell, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     static let reuseID = "\(ADsCell.self)"
     
-    @IBOutlet weak var ADView: UIView!
+    @IBOutlet weak var DefaultADView: UIView!
     @IBOutlet weak var PageControl: UIPageControl!
+    
+    private let pageVC = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+    private var cancellables: [AnyCancellable] = []
+    private var bannerVCs: [UIViewController] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.ADView.clipsToBounds = true
-        self.ADView.layer.cornerRadius = 12
-//        self.addPageViewController()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
-    func addPageViewController() {
-        let pageVC = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
-        self.addSubview(pageVC.view)
-        pageVC.view.translatesAutoresizingMaskIntoConstraints = false
-        pageVC.view.topAnchor.constraint(equalTo: self.ADView.topAnchor).isActive = true
-        pageVC.view.bottomAnchor.constraint(equalTo: self.ADView.bottomAnchor).isActive = true
-        pageVC.view.leadingAnchor.constraint(equalTo: self.ADView.leadingAnchor).isActive = true
-        pageVC.view.trailingAnchor.constraint(equalTo: self.ADView.trailingAnchor).isActive = true
-        pageVC.view.backgroundColor = .orange
-    }
-    
-    func addADs() {
+        self.DefaultADView.clipsToBounds = true
+        self.DefaultADView.layer.cornerRadius = 12
+        self.setPageViewController()
+        self.PageControl.isUserInteractionEnabled = false
         
+        cancellables.append(HomePageViewModel.sharedInstance.$bannerList
+            .sink { bannerList in
+                if (bannerList.count > 0) {
+                    self.addADs(bannerList: bannerList)
+                    self.DefaultADView.isHidden = true
+                }
+            })
     }
     
+    func setPageViewController() {
+        self.addSubview(self.pageVC.view)
+        self.pageVC.view.translatesAutoresizingMaskIntoConstraints = false
+        self.pageVC.view.topAnchor.constraint(equalTo: self.DefaultADView.topAnchor).isActive = true
+        self.pageVC.view.bottomAnchor.constraint(equalTo: self.DefaultADView.bottomAnchor).isActive = true
+        self.pageVC.view.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
+        self.pageVC.view.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
+        self.pageVC.view.isHidden = true
+        
+        self.pageVC.delegate = self
+        self.pageVC.dataSource = self
+    }
+    
+    func addADs(bannerList: [BannerInfo]) {
+        DispatchQueue.main.async {
+            self.bannerVCs.removeAll()
+            self.PageControl.numberOfPages = 0
+            for banner in bannerList {
+                let adVC = ADViewController()
+                adVC.banner = banner
+                self.bannerVCs.append(adVC)
+            }
+            
+            if (self.bannerVCs.count > 0) {
+                self.PageControl.numberOfPages = self.bannerVCs.count
+                self.pageVC.view.isHidden = false
+                self.turnToMainPage()
+            }
+        }
+    }
+    
+    func turnToMainPage() {
+        guard self.bannerVCs.count > 0 else {return}
+        self.PageControl.currentPage = 0
+        self.pageVC.setViewControllers([self.bannerVCs.first!], direction: .forward, animated: false)
+    }
+    
+    func setCurrentPage() {
+        if let vc = self.pageVC.viewControllers?.first {
+            self.PageControl.currentPage = self.bannerVCs.firstIndex(of: vc)!
+        }
+    }
+    
+    func viewControllerAtPage(page: Int) -> UIViewController? {
+        if page >= self.bannerVCs.count {
+            return self.bannerVCs.first
+        } else if page < 0 {
+            return self.bannerVCs.last
+        } else {
+            return self.bannerVCs[page]
+        }
+    }
+    
+    // MARK: - UIPageViewControllerDelegate
+    
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        self.setCurrentPage()
+    }
+    
+    // MARK: - UIPageViewControllerDataSource
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        return self.viewControllerAtPage(page: self.PageControl.currentPage - 1)
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        return self.viewControllerAtPage(page: self.PageControl.currentPage + 1)
+    }
 }

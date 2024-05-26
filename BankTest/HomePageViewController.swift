@@ -37,6 +37,8 @@ class HomePageViewController: UITableViewController{
         self.tableView.register(UINib(nibName: "\(FavoriteButtonsTitleCell.self)", bundle: nil), forCellReuseIdentifier: "\(FavoriteButtonsTitleCell.self)")
         self.tableView.register(UINib(nibName: "\(FavoriteButtonsCell.self)", bundle: nil), forCellReuseIdentifier: "\(FavoriteButtonsCell.self)")
         self.tableView.register(UINib(nibName: "\(ADsCell.self)", bundle: nil), forCellReuseIdentifier: "\(ADsCell.self)")
+        
+        HomePageViewModel.sharedInstance.getFirstEnterData()
     }
     
     // MARK: - UITableViewDataSource
@@ -74,14 +76,14 @@ class HomePageViewController: UITableViewController{
         case .USDBalance:
             cell = tableView.dequeueReusableCell(withIdentifier: BalanceCell.reuseID, for: indexPath) as! BalanceCell
             if let cell = cell as? BalanceCell {
-                cell.configure(title: "USD", balance: 0, isLoading: true)
+                cell.amountType = .USD
             }
             break
             
         case .KHRBalance:
             cell = tableView.dequeueReusableCell(withIdentifier: BalanceCell.reuseID, for: indexPath) as! BalanceCell
             if let cell = cell as? BalanceCell {
-                cell.configure(title: "KHR", balance: 0, isLoading: true)
+                cell.amountType = .KHR
             }
             break
             

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class AccountBalanceTitleCell: UITableViewCell {
     static let reuseID = "\(AccountBalanceTitleCell.self)"
@@ -13,17 +14,21 @@ class AccountBalanceTitleCell: UITableViewCell {
     @IBOutlet weak var hideBalanceIcon: UIImageView!
     @IBOutlet weak var hideBalanceButton: UIButton!
     
+    private var cancellables: [AnyCancellable] = []
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        self.hideBalanceButton.setTitle(nil, for: .normal)
         self.hideBalanceButton.addTarget(self, action: #selector(didClickHideBalanceButton), for: .touchUpInside)
+        
+        cancellables.append(HomePageViewModel.sharedInstance.$shouldHideBalance
+            .sink { shouldHideBalance in
+                self.hideBalanceIcon.image = shouldHideBalance ? UIImage(named: "eye_off") : UIImage(named: "eye_on")
+            })
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     @objc func didClickHideBalanceButton() {

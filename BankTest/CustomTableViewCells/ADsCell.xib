@@ -72,7 +72,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="ADView" destination="Mp8-l5-9pr" id="Q8q-X1-aoM"/>
+                <outlet property="DefaultADView" destination="Mp8-l5-9pr" id="Q8q-X1-aoM"/>
                 <outlet property="PageControl" destination="WYD-bt-oGN" id="4e7-Wb-Qmf"/>
             </connections>
             <point key="canvasLocation" x="139" y="21"/>
