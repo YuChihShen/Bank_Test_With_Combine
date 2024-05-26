@@ -27,13 +27,8 @@ struct Result: Codable {
 struct Message: Codable {
     let status: Bool
     let updateDateTime: String
-    let title: Title
+    let title: String
     let message: String
-}
-
-enum Title: String, Codable {
-    case accountCreated = "Account Created"
-    case accountTransaction = "Account transaction"
 }
 
 // MARK: - FavoriteList

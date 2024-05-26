@@ -17,6 +17,7 @@ class ADsCell: UITableViewCell, UIPageViewControllerDelegate, UIPageViewControll
     private let pageVC = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
     private var cancellables: [AnyCancellable] = []
     private var bannerVCs: [UIViewController] = []
+    private var turnPageTimer : Timer?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,9 +30,34 @@ class ADsCell: UITableViewCell, UIPageViewControllerDelegate, UIPageViewControll
             .sink { bannerList in
                 if (bannerList.count > 0) {
                     self.addADs(bannerList: bannerList)
-                    self.DefaultADView.isHidden = true
+                    DispatchQueue.main.async {
+                        self.DefaultADView.isHidden = true
+                    }
                 }
             })
+    }
+    
+    deinit {
+        self.clearTimer()
+    }
+    
+    func clearTimer() {
+        self.turnPageTimer?.invalidate()
+        self.turnPageTimer = nil
+    }
+    
+    func resetTurnPageTimer() {
+        self.clearTimer()
+        if self.bannerVCs.count > 1 {
+            self.turnPageTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(turnPage), userInfo: nil, repeats: true)
+        }
+    }
+    
+    @objc func turnPage() {
+        if let nextVC = self.viewControllerAtPage(page: self.PageControl.currentPage + 1) {
+            self.pageVC.setViewControllers([nextVC], direction: .forward, animated: true)
+            self.setCurrentPage()
+        }
     }
     
     func setPageViewController() {
@@ -61,6 +87,7 @@ class ADsCell: UITableViewCell, UIPageViewControllerDelegate, UIPageViewControll
                 self.PageControl.numberOfPages = self.bannerVCs.count
                 self.pageVC.view.isHidden = false
                 self.turnToMainPage()
+                self.resetTurnPageTimer()
             }
         }
     }
@@ -91,6 +118,7 @@ class ADsCell: UITableViewCell, UIPageViewControllerDelegate, UIPageViewControll
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         self.setCurrentPage()
+        self.resetTurnPageTimer()
     }
     
     // MARK: - UIPageViewControllerDataSource

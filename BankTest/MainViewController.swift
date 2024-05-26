@@ -17,6 +17,13 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let backButtonImage = UIImage(named: "arrow_back")
+        self.navigationController?.navigationBar.backIndicatorImage = backButtonImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage
+        self.navigationController?.navigationBar.backItem?.title = nil
+        navigationItem.leftItemsSupplementBackButton = true
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
+        
         addSubViewControllers()
         addFloatingTabBarView()
     }

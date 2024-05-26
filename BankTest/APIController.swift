@@ -11,15 +11,24 @@ import UIKit
 class APIController: NSObject {
     
     enum URLString:String {
-        case firstGetNotificationList       = "https://willywu0201.github.io/data/emptyNotificationList.json"
-        case firstGetUSDSaving              = "https://willywu0201.github.io/data/usdSavings1.json"
-        case firstGetUSDFixedDeposited      = "https://willywu0201.github.io/data/usdFixed1.json"
-        case firstGetUSDDigital             = "https://willywu0201.github.io/data/usdDigital1.json"
-        case firstGetKHRSaving              = "https://willywu0201.github.io/data/khrSavings1.json"
-        case firstGetKHRFixedDeposited      = "https://willywu0201.github.io/data/khrFixed1.json"
-        case firstGetKHRDigital             = "https://willywu0201.github.io/data/khrDigital1.json"
-        case firstGetFavoriteList           = "https://willywu0201.github.io/data/emptyFavoriteList.json"
-        case getADs                         = "https://willywu0201.github.io/data/banner.json"
+        case firstGetNotificationList               = "https://willywu0201.github.io/data/emptyNotificationList.json"
+        case firstGetUSDSaving                      = "https://willywu0201.github.io/data/usdSavings1.json"
+        case firstGetUSDFixedDeposited              = "https://willywu0201.github.io/data/usdFixed1.json"
+        case firstGetUSDDigital                     = "https://willywu0201.github.io/data/usdDigital1.json"
+        case firstGetKHRSaving                      = "https://willywu0201.github.io/data/khrSavings1.json"
+        case firstGetKHRFixedDeposited              = "https://willywu0201.github.io/data/khrFixed1.json"
+        case firstGetKHRDigital                     = "https://willywu0201.github.io/data/khrDigital1.json"
+        case firstGetFavoriteList                   = "https://willywu0201.github.io/data/emptyFavoriteList.json"
+        case getADs                                 = "https://willywu0201.github.io/data/banner.json"
+        
+        case pullRefreshGetNotificationList         = "https://willywu0201.github.io/data/notificationList.json"
+        case pullRefreshGetUSDSaving                = "https://willywu0201.github.io/data/usdSavings2.json"
+        case pullRefreshGetUSDFixedDeposited        = "https://willywu0201.github.io/data/usdFixed2.json"
+        case pullRefreshGetUSDDigital               = "https://willywu0201.github.io/data/usdDigital2.json"
+        case pullRefreshGetKHRSaving                = "https://willywu0201.github.io/data/khrSavings2.json"
+        case pullRefreshGetKHRFixedDeposited        = "https://willywu0201.github.io/data/khrFixed2.json"
+        case pullRefreshGetKHRDigital               = "https://willywu0201.github.io/data/khrDigital2.json"
+        case pullRefreshGetFavoriteList             = "https://willywu0201.github.io/data/favoriteList.json"
     }
     
     func getData(urlEnum:URLString ,completionHandler: @escaping @Sendable (Data?, URLResponse?, Error?) -> Void) {

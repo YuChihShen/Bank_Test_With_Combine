@@ -26,8 +26,12 @@ class HomePageViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.addTarget(self, action: #selector(pullRefresh), for: .valueChanged)
         self.tableView.separatorStyle = .none
         self.tableView.backgroundView?.backgroundColor = .clear
         self.tableView.register(UINib(nibName: "\(HeadAndNotificationCell.self)", bundle: nil), forCellReuseIdentifier: "\(HeadAndNotificationCell.self)")
@@ -38,7 +42,17 @@ class HomePageViewController: UITableViewController{
         self.tableView.register(UINib(nibName: "\(FavoriteButtonsCell.self)", bundle: nil), forCellReuseIdentifier: "\(FavoriteButtonsCell.self)")
         self.tableView.register(UINib(nibName: "\(ADsCell.self)", bundle: nil), forCellReuseIdentifier: "\(ADsCell.self)")
         
-        HomePageViewModel.sharedInstance.getFirstEnterData()
+        HomePageViewModel.sharedInstance.getFirstOpenData()
+    }
+    
+    @objc func pullRefresh() {
+        HomePageViewModel.sharedInstance.pullRefreshData()
+        self.refreshControl?.endRefreshing()
+    }
+    
+    @objc func presentToNotificationView() {
+        let notificationVC = NotificationTableViewController()
+        self.navigationController?.pushViewController(notificationVC, animated: true)
     }
     
     // MARK: - UITableViewDataSource
@@ -67,6 +81,9 @@ class HomePageViewController: UITableViewController{
         switch sectionType(rawValue: indexPath.section) {
         case .HeadAndNotification:
             cell = tableView.dequeueReusableCell(withIdentifier: HeadAndNotificationCell.reuseID, for: indexPath) as! HeadAndNotificationCell
+            if let cell = cell as? HeadAndNotificationCell {
+                cell.bellButton.addTarget(self, action: #selector(presentToNotificationView), for: .touchUpInside)
+            }
             break
             
         case .AccountBalanceTitle:
