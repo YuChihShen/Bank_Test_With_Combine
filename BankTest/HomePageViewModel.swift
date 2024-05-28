@@ -24,6 +24,7 @@ class HomePageViewModel: NSObject {
     let amountCalculateQueue = DispatchQueue(label: "amount")
     
     func getFirstOpenData() {
+        self.isLoadingBalance = true
         self.usdBalanceInfoList.removeAll()
         self.khrBalanceInfoList.removeAll()
         
@@ -47,7 +48,7 @@ class HomePageViewModel: NSObject {
             }
             
             if let favoriteList = try? JSONDecoder().decode(Response.self, from: data).result.favoriteList {
-                self.favoriteList  = favoriteList
+                self.favoriteList = favoriteList
             } else {
                 self.favoriteList.removeAll()
             }
@@ -166,7 +167,9 @@ class HomePageViewModel: NSObject {
             }
             self.khrBalanceString = numberFormate.string(from: NSNumber(value: khrAmount)) ?? "0"
             
-            self.isLoadingBalance = false
+            DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + 0.5) {
+                self.isLoadingBalance = false
+            }
         }
         
     }
@@ -196,7 +199,7 @@ class HomePageViewModel: NSObject {
             }
             
             if let favoriteList = try? JSONDecoder().decode(Response.self, from: data).result.favoriteList {
-                self.favoriteList  = favoriteList
+                self.favoriteList = favoriteList
             } else {
                 self.favoriteList.removeAll()
             }
@@ -314,7 +317,9 @@ class HomePageViewModel: NSObject {
             }
             self.khrBalanceString = numberFormate.string(from: NSNumber(value: khrAmount)) ?? "0"
             
-            self.isLoadingBalance = false
+            DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + 0.5) {
+                self.isLoadingBalance = false
+            }
         }
     }
     

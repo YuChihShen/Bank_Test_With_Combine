@@ -39,25 +39,42 @@
                             </label>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="Qao-Dz-qsg" firstAttribute="leading" secondItem="D8w-Ng-lMT" secondAttribute="leading" constant="36" id="BAK-bW-zux"/>
+                            <constraint firstItem="Qao-Dz-qsg" firstAttribute="top" secondItem="D8w-Ng-lMT" secondAttribute="top" constant="4" id="Bt9-Eu-nnj"/>
                             <constraint firstItem="vXj-e2-yxr" firstAttribute="top" secondItem="D8w-Ng-lMT" secondAttribute="top" constant="60" id="Scz-dV-mYL"/>
                             <constraint firstAttribute="bottom" secondItem="vXj-e2-yxr" secondAttribute="bottom" constant="4" id="ThY-cH-PbR"/>
                             <constraint firstAttribute="trailing" secondItem="Y52-w1-zKp" secondAttribute="trailing" constant="24" id="b0e-0p-k0K"/>
                             <constraint firstItem="vXj-e2-yxr" firstAttribute="centerX" secondItem="Qao-Dz-qsg" secondAttribute="centerX" id="cxb-gv-xhd"/>
+                            <constraint firstAttribute="bottom" secondItem="Qao-Dz-qsg" secondAttribute="bottom" constant="28" id="eGl-Bx-cw9"/>
                             <constraint firstItem="Y52-w1-zKp" firstAttribute="top" secondItem="D8w-Ng-lMT" secondAttribute="top" constant="16" id="v1v-pf-P3q"/>
                             <constraint firstItem="Y52-w1-zKp" firstAttribute="leading" secondItem="D8w-Ng-lMT" secondAttribute="leading" constant="104" id="vQu-Rv-amp"/>
                         </constraints>
                     </view>
+                    <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="roQ-Q7-4s9">
+                        <rect key="frame" x="24" y="0.0" width="272" height="88"/>
+                        <color key="backgroundColor" red="0.98039215800000001" green="0.98039215800000001" blue="0.98039215800000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="RSJ-F6-phs">
+                            <size key="itemSize" width="80" height="80"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Qao-Dz-qsg" firstAttribute="leading" secondItem="D8w-Ng-lMT" secondAttribute="leading" constant="36" id="BAK-bW-zux"/>
-                    <constraint firstItem="Qao-Dz-qsg" firstAttribute="top" secondItem="D8w-Ng-lMT" secondAttribute="top" constant="4" id="Bt9-Eu-nnj"/>
+                    <constraint firstItem="roQ-Q7-4s9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="0dC-91-HqJ"/>
+                    <constraint firstAttribute="bottom" secondItem="roQ-Q7-4s9" secondAttribute="bottom" id="877-h8-IEl"/>
                     <constraint firstAttribute="bottom" secondItem="D8w-Ng-lMT" secondAttribute="bottom" id="CHY-QT-1uY"/>
+                    <constraint firstAttribute="trailing" secondItem="roQ-Q7-4s9" secondAttribute="trailing" constant="24" id="IAC-NH-sAa"/>
+                    <constraint firstItem="roQ-Q7-4s9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="OtX-3u-FBb"/>
                     <constraint firstItem="D8w-Ng-lMT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="e5b-Ml-4gS"/>
-                    <constraint firstItem="D8w-Ng-lMT" firstAttribute="bottom" secondItem="Qao-Dz-qsg" secondAttribute="bottom" constant="28" id="eGl-Bx-cw9"/>
                     <constraint firstItem="D8w-Ng-lMT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="uNi-g7-BnP"/>
                     <constraint firstAttribute="trailing" secondItem="D8w-Ng-lMT" secondAttribute="trailing" id="wtd-Yl-wDI"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="collectionView" destination="roQ-Q7-4s9" id="wMC-zq-80e"/>
+            </connections>
             <point key="canvasLocation" x="139" y="21"/>
         </tableViewCell>
     </objects>

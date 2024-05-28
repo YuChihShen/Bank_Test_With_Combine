@@ -30,7 +30,9 @@ class BalanceCell: UITableViewCell {
                 cancellables.append(HomePageViewModel.sharedInstance.$usdBalanceString
                     .sink { balanceString in
                         guard !HomePageViewModel.sharedInstance.shouldHideBalance else { return }
-                        self.balanceLabel.text = balanceString
+                        DispatchQueue.main.async {
+                            self.balanceLabel.text = balanceString
+                        }
                     })
                 break
                 
@@ -38,7 +40,9 @@ class BalanceCell: UITableViewCell {
                 cancellables.append(HomePageViewModel.sharedInstance.$khrBalanceString
                     .sink { balanceString in
                         guard !HomePageViewModel.sharedInstance.shouldHideBalance else { return }
-                        self.balanceLabel.text = balanceString
+                        DispatchQueue.main.async {
+                            self.balanceLabel.text = balanceString
+                        }
                     })
                 break
             }
@@ -50,14 +54,22 @@ class BalanceCell: UITableViewCell {
         
         cancellables.append(HomePageViewModel.sharedInstance.$isLoadingBalance
             .sink { isLoadingBalance in
-                self.loadingMaskView.isHidden = !isLoadingBalance
+                DispatchQueue.main.async {
+                    self.loadingMaskView.isHidden = !isLoadingBalance
+                }
             })
         
         cancellables.append(HomePageViewModel.sharedInstance.$shouldHideBalance
             .sink { shouldHideBalance in
-                self.balanceLabel.text = shouldHideBalance ? "********" : self.getBalance()
+                DispatchQueue.main.async {
+                    self.balanceLabel.text = shouldHideBalance ? "********" : self.getBalance()
+                }
             })
-        
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.loadingMaskView.showSkeleton()
     }
     
     func getBalance() -> String {

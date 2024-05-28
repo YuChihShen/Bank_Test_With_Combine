@@ -22,7 +22,9 @@ class AccountBalanceTitleCell: UITableViewCell {
         
         cancellables.append(HomePageViewModel.sharedInstance.$shouldHideBalance
             .sink { shouldHideBalance in
-                self.hideBalanceIcon.image = shouldHideBalance ? UIImage(named: "eye_off") : UIImage(named: "eye_on")
+                DispatchQueue.main.async {
+                    self.hideBalanceIcon.image = shouldHideBalance ? UIImage(named: "eye_off") : UIImage(named: "eye_on")
+                }
             })
         
     }

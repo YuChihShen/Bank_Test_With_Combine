@@ -23,10 +23,8 @@ class NotificationTableViewController: UITableViewController {
         
         cancellables.append(HomePageViewModel.sharedInstance.$notificationList
             .sink { notificationList in
-                if notificationList.count > 0 {
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
                 }
             })
         

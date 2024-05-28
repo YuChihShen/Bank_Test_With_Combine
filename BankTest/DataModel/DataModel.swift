@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - Response
 struct Response: Codable {
@@ -33,8 +34,30 @@ struct Message: Codable {
 
 // MARK: - FavoriteList
 struct FavoriteInfo: Codable {
-    let nickname, transType: String
+    let nickname: String
+    let transType: TransType
 }
+
+enum TransType: String, Codable {
+    case CUBC = "CUBC"
+    case Mobile = "Mobile"
+    case PMF = "PMF"
+    case CreditCard = "CreditCard"
+    
+    var image: UIImage? {
+        switch self {
+        case.CUBC:
+            return UIImage(named: "cubc")
+        case .Mobile:
+            return UIImage(named: "mobile")
+        case .PMF:
+            return UIImage(named: "pmf")
+        case .CreditCard:
+            return UIImage(named: "credit_card")
+        }
+    }
+}
+
 
 // MARK: - BannerList
 struct BannerInfo: Codable {

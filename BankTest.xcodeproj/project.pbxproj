@@ -32,6 +32,8 @@
 		658DE4092C0157CB0051EBC5 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658DE4082C0157CB0051EBC5 /* HomePageViewController.swift */; };
 		658DE40E2C0157CD0051EBC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 658DE40D2C0157CD0051EBC5 /* Assets.xcassets */; };
 		658DE4112C0157CD0051EBC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 658DE40F2C0157CD0051EBC5 /* LaunchScreen.storyboard */; };
+		65BDB94F2C04C4C800A8228D /* FavoriteItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDB94D2C04C4C800A8228D /* FavoriteItemCell.swift */; };
+		65BDB9502C04C4C800A8228D /* FavoriteItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65BDB94E2C04C4C800A8228D /* FavoriteItemCell.xib */; };
 		65FA34292C01622E00DC452D /* HeadAndNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FA34272C01622E00DC452D /* HeadAndNotificationCell.swift */; };
 		65FA342A2C01622E00DC452D /* HeadAndNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65FA34282C01622E00DC452D /* HeadAndNotificationCell.xib */; };
 		65FA342F2C01678700DC452D /* AccountBalanceTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FA342D2C01678600DC452D /* AccountBalanceTitleCell.swift */; };
@@ -66,6 +68,8 @@
 		658DE40D2C0157CD0051EBC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		658DE4102C0157CD0051EBC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		658DE4122C0157CD0051EBC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65BDB94D2C04C4C800A8228D /* FavoriteItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteItemCell.swift; sourceTree = "<group>"; };
+		65BDB94E2C04C4C800A8228D /* FavoriteItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteItemCell.xib; sourceTree = "<group>"; };
 		65FA34272C01622E00DC452D /* HeadAndNotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadAndNotificationCell.swift; sourceTree = "<group>"; };
 		65FA34282C01622E00DC452D /* HeadAndNotificationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeadAndNotificationCell.xib; sourceTree = "<group>"; };
 		65FA342D2C01678600DC452D /* AccountBalanceTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBalanceTitleCell.swift; sourceTree = "<group>"; };
@@ -129,12 +133,22 @@
 				65145BE72C035CA600308749 /* ADViewController.swift */,
 				65145BDC2C02F8E600308749 /* FloatingTabBar */,
 				65FA34262C015F3200DC452D /* CustomTableViewCells */,
+				65BDB94C2C04C48700A8228D /* CustomCollectionViewCells */,
 				65145BE12C031B8200308749 /* DataModel */,
 				658DE40D2C0157CD0051EBC5 /* Assets.xcassets */,
 				658DE40F2C0157CD0051EBC5 /* LaunchScreen.storyboard */,
 				658DE4122C0157CD0051EBC5 /* Info.plist */,
 			);
 			path = BankTest;
+			sourceTree = "<group>";
+		};
+		65BDB94C2C04C48700A8228D /* CustomCollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				65BDB94D2C04C4C800A8228D /* FavoriteItemCell.swift */,
+				65BDB94E2C04C4C800A8228D /* FavoriteItemCell.xib */,
+			);
+			path = CustomCollectionViewCells;
 			sourceTree = "<group>";
 		};
 		65FA34262C015F3200DC452D /* CustomTableViewCells */ = {
@@ -218,6 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65BDB9502C04C4C800A8228D /* FavoriteItemCell.xib in Resources */,
 				65145BF02C0390B500308749 /* NotificationCell.xib in Resources */,
 				65145BCA2C01A64400308749 /* FunctionButtonsCell.xib in Resources */,
 				65145BD82C02609300308749 /* ADsCell.xib in Resources */,
@@ -250,6 +265,7 @@
 				65145BC22C019F5B00308749 /* HomePageViewModel.swift in Sources */,
 				65FA34292C01622E00DC452D /* HeadAndNotificationCell.swift in Sources */,
 				65145BEF2C0390B500308749 /* NotificationCell.swift in Sources */,
+				65BDB94F2C04C4C800A8228D /* FavoriteItemCell.swift in Sources */,
 				65145BCF2C01AEF300308749 /* FavoriteButtonsTitleCell.swift in Sources */,
 				65145BE42C031B9E00308749 /* DataModel.swift in Sources */,
 				658DE4092C0157CB0051EBC5 /* HomePageViewController.swift in Sources */,

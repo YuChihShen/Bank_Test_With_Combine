@@ -34,3 +34,27 @@ extension UIFont {
     }
 }
 
+extension UIView {
+    func showSkeleton() {
+        let backgroundColor = UIColor(named: "white - Zero")!.cgColor
+        let highlightColor = UIColor(named: "white - Three")!.cgColor
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [highlightColor, backgroundColor, highlightColor]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        gradientLayer.locations = [0.0, 0.5, 1.0]
+        gradientLayer.frame = self.bounds
+
+        self.layer.addSublayer(gradientLayer)
+        let widht = self.bounds.width
+        
+        let animation = CABasicAnimation(keyPath: "locations")
+        animation.fromValue = [-1.0, -0.5, 0.0]
+        animation.toValue = [1.0, 1.5, 2.0]
+        animation.repeatCount = .infinity
+        animation.duration = 1
+        gradientLayer.add(animation, forKey: animation.keyPath)
+    }
+}
+

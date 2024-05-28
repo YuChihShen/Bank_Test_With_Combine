@@ -28,11 +28,9 @@ class ADsCell: UITableViewCell, UIPageViewControllerDelegate, UIPageViewControll
         
         cancellables.append(HomePageViewModel.sharedInstance.$bannerList
             .sink { bannerList in
-                if (bannerList.count > 0) {
+                DispatchQueue.main.async {
                     self.addADs(bannerList: bannerList)
-                    DispatchQueue.main.async {
-                        self.DefaultADView.isHidden = true
-                    }
+                    self.DefaultADView.isHidden = true
                 }
             })
     }
@@ -74,21 +72,19 @@ class ADsCell: UITableViewCell, UIPageViewControllerDelegate, UIPageViewControll
     }
     
     func addADs(bannerList: [BannerInfo]) {
-        DispatchQueue.main.async {
-            self.bannerVCs.removeAll()
-            self.PageControl.numberOfPages = 0
-            for banner in bannerList {
-                let adVC = ADViewController()
-                adVC.banner = banner
-                self.bannerVCs.append(adVC)
-            }
-            
-            if (self.bannerVCs.count > 0) {
-                self.PageControl.numberOfPages = self.bannerVCs.count
-                self.pageVC.view.isHidden = false
-                self.turnToMainPage()
-                self.resetTurnPageTimer()
-            }
+        self.bannerVCs.removeAll()
+        self.PageControl.numberOfPages = 0
+        for banner in bannerList {
+            let adVC = ADViewController()
+            adVC.banner = banner
+            self.bannerVCs.append(adVC)
+        }
+        
+        if (self.bannerVCs.count > 0) {
+            self.PageControl.numberOfPages = self.bannerVCs.count
+            self.pageVC.view.isHidden = false
+            self.turnToMainPage()
+            self.resetTurnPageTimer()
         }
     }
     
