@@ -16,6 +16,10 @@ class NotificationTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = "Notification"
+        let backBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow_back"), style: .done, target: self, action: #selector(back))
+        backBarButtonItem.tintColor = #colorLiteral(red: 0.265615046, green: 0.2592996955, blue: 0.2641559541, alpha: 1)
+        self.navigationItem.leftBarButtonItem = backBarButtonItem
+        
         
         self.tableView.separatorStyle = .none
         self.tableView.rowHeight = UITableView.automaticDimension
@@ -36,6 +40,10 @@ class NotificationTableViewController: UITableViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    @objc func back() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Table view data source

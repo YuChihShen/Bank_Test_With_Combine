@@ -47,7 +47,6 @@ extension UIView {
         gradientLayer.frame = self.bounds
 
         self.layer.addSublayer(gradientLayer)
-        let widht = self.bounds.width
         
         let animation = CABasicAnimation(keyPath: "locations")
         animation.fromValue = [-1.0, -0.5, 0.0]
